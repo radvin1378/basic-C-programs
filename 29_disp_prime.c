@@ -3,19 +3,14 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-bool prime_fn(int x);
-int print_array(int array[], int size);
+bool prime(int x);
 
 int main(void)
 {
-    int start, stop, size, cntr = 0;
-    bool flag = true;
+    int start, stop;
     printf("Enter the interval: ");
     scanf("%d,%d", &start, &stop);
     printf("%d,%d\n", start, stop);
-
-    size = stop - start;
-    int prime[size];
 
     for(int i = start; i <= stop; i++)
     {
@@ -23,17 +18,16 @@ int main(void)
         {
             continue;
         }
-        if (prime_fn(i) == true)  
+        if (prime(i))  
         {
-            prime[cntr] = i;
-            cntr++;
+            printf("%d ", i);
         }
     }
-    print_array(prime, cntr);
+    printf("\n");
     return 0;
 }
 
-bool prime_fn(int x)
+bool prime(int x)
 {
     int h = x/2;
     for (int i = 2; i <= h; i++)
@@ -41,13 +35,4 @@ bool prime_fn(int x)
         if (x%i == 0)
             return false;
     }
-}
-
-int print_array(int array[], int size)
-{
-    for (int i = 0; i < size; i++)
-    {
-        printf("%d ", array[i]);
-    }
-    printf("\n");
 }
