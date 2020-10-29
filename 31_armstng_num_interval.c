@@ -1,29 +1,26 @@
+//To find the armstronmg numbers in the given interval
+
 #include <stdio.h>
 #include <stdbool.h>
 #include <math.h>
 
 bool armstrng_num(int x);
-int print_array(int array[], int size);
 
 int main(void)
 {
-    int start, stop, size, cntr = 0;
+    int start, stop;
     printf("Enter the interval: ");
     scanf("%d,%d", &start, &stop);
     printf("%d,%d\n", start, stop);
-
-    size = stop - start;
-    int armstrong[size];
 
     for(int i = start; i <= stop; i++)
     {
         if (armstrng_num(i))
         {
-            armstrong[cntr] = i;
-            cntr++;
+            printf("%d ", i);
         }
-    }   
-    print_array(armstrong, cntr);
+    }
+    printf("\n");   
     return 0;
 }
 
@@ -44,15 +41,8 @@ bool armstrng_num(int x)
     }
 
     if (sum == nu)
-        return true;
-    return false;
-}
-
-int print_array(int array[], int size)
-{
-    for (int i = 0; i < size; i++)
     {
-        printf("%d ", array[i]);
+        return true;
     }
-    printf("\n");
+    return false;
 }
